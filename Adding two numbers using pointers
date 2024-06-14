@@ -1,0 +1,17 @@
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+int main(){
+int a , b;
+int *ptr1 = &amp;a;
+int *ptr2= &amp;b;
+printf(&quot;enter value of a &quot;);
+scanf(&quot;%d&quot;,ptr1);
+
+printf(&quot;enter value of b &quot;);
+scanf(&quot;%d&quot;, ptr2);
+
+printf(&quot;a + b = %d&quot;,*ptr1 + *ptr2);
+
+return 0;
+}
