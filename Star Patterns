@@ -1,0 +1,119 @@
+
+#include <stdio.h>
+
+void square(int row) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < row; j++) {
+            printf(" * ");
+        }
+        printf("\n");
+    }
+}
+
+void inverted_right_angle(int row){
+    for(int i = 0 ; i < row ; i++){
+        for(int j = 0 ; j < row - i ; j++){
+            printf(" * ");
+        }
+        printf("\n");
+    } 
+} 
+
+void pyramid(int row){ 
+    for(int i = 0 ; i < row ; i++){ 
+        for(int j = 0 ; j < row - i ; j++){ 
+            printf(" "); 
+        } 
+            for(int k = 0 ; k < i * 2 + 1 ; k++){
+                printf("*");
+            }
+        printf("\n"); 
+    } 
+} 
+
+void inverted_pyramid(int row){
+    for(int i = 0 ; i < row ; i++){
+        for(int j = 0 ; j < i ; j++){
+            printf(" ");
+        }
+            for(int k = 0 ; k < 2 * (row - i) - 1  ; k++){
+                printf("*");
+            }
+        printf("\n");
+    }
+}
+
+void diamond(int row){
+    for(int i = 0 ; i < row ; i++){ 
+        for(int j = 0 ; j < row - i ; j++){ 
+            printf(" "); 
+        } 
+            for(int k = 0 ; k < i * 2 - 1; k++){
+                printf("*");
+            }
+        printf("\n"); 
+    }
+
+    for(int i = 0 ; i < row ; i++){
+        for(int j = 0 ; j < i ; j++){
+            printf(" ");
+        }
+            for(int k = 0 ; k < 2 * (row - i) - 1 ; k++){
+                printf("*");
+            }
+        printf("\n");
+    }
+}
+
+int main() {
+    int number, row;
+    while (1) {
+        printf("Enter 1 for Square\n");
+        printf("Enter 2 for Inverted right angle\n");
+        printf("Enter 3 for pyramid\n");
+        printf("Enter 4 for inverted pyramid\n");
+        printf("Enter 5 for diamond\n");
+        printf("Enter 6 for exit \n");
+
+        scanf("%d", &number);
+        switch (number) {
+        case 1:
+            printf("Enter no of rows\n");
+            scanf("%d", &row);
+            square(row);
+            break;
+
+        case 2:
+            printf("Enter no of rows \n"); 
+            scanf("%d", &row);
+            inverted_right_angle(row);
+            break;   
+
+        case 3:
+            printf("Enter no of rows \n"); 
+            scanf("%d", &row);
+            pyramid(row);
+            break;   
+
+        case 4:
+            printf("Enter no of rows \n"); 
+            scanf("%d", &row);
+            inverted_pyramid(row);
+            break;               
+        
+        case 5:
+            printf("Enter no of rows \n"); 
+            scanf("%d", &row);
+            diamond(row);
+            break;             
+        
+        case 6:
+            return 0;
+        default:
+            printf("Enter an invalid number\n");
+            break;
+        }
+    }
+
+    return 0;
+}
