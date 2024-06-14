@@ -1,0 +1,119 @@
+
+
+
+#include <stdio.h>
+
+void count_vowels(char str[]) {
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        char ch = str[i];
+        if ((ch == 'a' || ch == 'A') || (ch == 'e' || ch == 'E') ||
+            (ch == 'i' || ch == 'I') || (ch == 'o' || ch == 'O') ||
+            (ch == 'u' || ch == 'U')) {
+            count++;
+        }
+    }
+    printf("Number of vowels: %d\n", count);
+    printf("\n");
+}
+
+void reverse(char str[]) {
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+
+    for (int i = 0, j = length - 1; i < j; i++, j--) {
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+
+    printf("Reversed string: %s\n", str);
+    printf("\n");
+}
+
+void convert(char str[]){
+    for(int i = 0 ; str[i] != '\0' ; i++){
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = str[i] + 32;
+        }
+    }
+    printf("%s",str);
+    printf("\n");
+}
+
+void str_length(char str[]){
+    int length = 0 ;
+    for(int i = 0 ; str[i] != '\0' ; i++){
+       if(str[i] != '\0'){
+        length++ ;
+       }
+    printf("%d",length);   
+    }
+}
+
+void str_compare(char str[]){
+    char compare[100];
+    printf("Enter string for comparison\n");
+    scanf("%99s", compare);
+     for(int i = 0 ; str[i] != '\0' ; i++){
+        if(str[i] == compare[i]){
+            printf("they are same at index %d\n",i);
+        }
+        else{
+            printf("they are not same at index %d\n",i);
+        }
+     }
+}
+
+int main() {
+    int number;
+    char str[100];
+
+    printf("Enter string:\n");
+    scanf("%99s", str);
+
+    while (1) {
+        printf("Enter 1 for count vowels\n");
+        printf("Enter 2 for reverse string\n");
+        printf("Enter 3 for convert lower case\n");
+        printf("Enter 4 for string length\n");
+        printf("Enter 5 for string compare\n");
+        printf("Enter 6 for exit\n");
+
+        scanf("%d", &number);
+        switch (number) {
+            case 1:
+                count_vowels(str);
+                break;
+
+            case 2:
+                reverse(str);
+                break;
+
+
+            case 3:
+                convert(str);
+                break;
+
+            case 4:
+                str_length(str);
+                break;
+
+            case 5:
+                str_compare(str);
+                break;
+
+            case 6:
+                return 0;
+
+            default:
+                printf("Enter a valid number.\n");
+                break;
+        }
+    }
+    return 0;
+}
+
+
