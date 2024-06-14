@@ -1,0 +1,10 @@
+#include &lt;stdio.h&gt;// header file
+int main(){// main function
+int sum = 0;// declare variable sum = 0
+for(int i = 1; i &lt;= 100 ; i++){// using for loop for(int i = 1; i &lt;= 100 ; i++)
+sum = sum + i; // add value of i in sum variable
+}
+printf(&quot;the sum is %d&quot;,sum); // print value of sum
+
+return 0;//end
+}
