@@ -1,0 +1,36 @@
+#include&lt;stdio.h&gt;
+int main(){
+int number1,number2,number3;
+
+printf(&quot;Enter number 1 :\n&quot;);
+scanf(&quot;%d&quot;,&amp;number1);
+
+printf(&quot;Enter number 2 :\n&quot;);
+scanf(&quot;%d&quot;,&amp;number2);
+
+printf(&quot;Enter number 3 :\n&quot;);
+scanf(&quot;%d&quot;,&amp;number3);
+
+if(number1 &gt; number2 &amp;&amp; number1 &gt; number3){
+printf(&quot;max = %d\n&quot;,number1);
+
+}else if(number2 &gt; number3){
+printf(&quot;max = %d\n&quot;,number2);
+}
+else{
+printf(&quot;max = %d\n&quot;,number3);
+}
+
+if(number1 &lt; number2 &amp;&amp; number1 &lt; number3){
+printf(&quot;min = %d&quot;,number1);
+
+}else if(number2 &lt; number3){
+
+printf(&quot;min = %d&quot;,number2);
+}
+else{
+printf(&quot;min = %d&quot;,number3);
+}
+
+return 0;
+}
