@@ -1,0 +1,137 @@
+#include <stdio.h>
+
+void linear_search(int array[], int size, int search) {
+    for (int i = 0; i < size; i++) {
+        if (array[i] == search) {
+            printf("%d found at index %d.\n", search, i);
+            return; 
+        }
+    }
+    printf("%d not found in the array.\n", search);
+}
+
+void reverse_array(int array[], int size) {
+    int rev_array[size];
+
+    // Reverse the array and print it at the same time
+    printf("Reversed array: ");
+    for (int i = size - 1, j = 0; i >= 0; i--, j++) {
+        rev_array[j] = array[i];
+        printf("%d ", rev_array[j]);
+    }
+    printf("\n");
+}
+
+void second_largest(int array[],int size){
+    int largest = array[0] ,second_largest = array[0],i ,j;
+    for(i = 0 ; i < size ; i++){
+        if(array[i] > largest){
+            largest = array[i]; 
+        }
+    }
+    
+    for(j = 0 ; j < size ; j++){
+        if(array[j] > second_largest && array[j] < largest){
+        second_largest = array[j] ;
+        }
+ 
+    }
+    printf("second largest value is :%d \n",second_largest);
+   
+}
+
+void bubble_sort(int array[], int size){
+    for(int i = 0 ; i < size ; i++){
+        for(int j = 0 ; j < size ; j++){
+            if(array[i] < array[j]){
+                int temp = array[i] ;
+                array[i] = array[j] ;
+                array[j] = temp ;
+            }
+        }
+    }
+
+  for(int i = 0 ; i < size ; i++){
+    printf(" %d",array[i]);
+  }
+    printf("\n");
+}
+
+void average(int array[], int size){
+    int sum = 0 , average ;
+    for(int i = 0 ; i < size ; i++){
+        sum = sum + array[i];
+    }
+
+    average = sum / size ;
+    printf("%d ",average);
+}
+
+void display(int array[],int size){
+   for(int i = 0 ; i < size ; i++){
+      printf("%d ",array[i]);
+   }
+}
+
+int main() {
+    int number, size, search;
+
+    printf("Enter the size of the array:\n");
+    scanf("%d", &size);
+
+    int array[size]; 
+    for (int i = 0; i < size; i++) {
+        printf("Enter value for index %d: ", i);
+        scanf("%d", &array[i]);
+    }
+
+    while (1) {
+        printf("Enter 1 for linear search\n");
+        printf("Enter 2 for reverse array\n");
+        printf("Enter 3 for second largest\n");
+        printf("Enter 4 for bubble sort\n");
+        printf("Enter 5 for average\n");
+        printf("Enter 6 for display array\n");
+        printf("Enter 7 for exit\n");
+
+        scanf("%d", &number);
+        switch (number) {
+            case 1:
+                printf("Enter the value you want to search:\n");
+                scanf("%d", &search);
+                linear_search(array, size, search);
+                break ;
+
+            case 2:
+                reverse_array(array, size);
+                break ;
+
+            case 3:
+                second_largest(array,size);
+                break ;   
+
+            case 4 :
+                bubble_sort(array,size);    
+                break ;
+
+            case 5 :
+                average(array,size);  
+                break ;                   
+
+            case 6 :
+               display(array,size);
+               break ;
+            
+            case 7:
+                return 0;
+
+            default:
+                printf("Enter an invalid number\n");
+                break;
+        }
+    }
+
+    return 0;
+}
+
+
