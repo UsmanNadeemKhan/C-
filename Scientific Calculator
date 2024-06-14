@@ -1,0 +1,1002 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#define pie 3.14
+#define e 2.717
+#define mp 1.6726219e-27
+#define mn 1.675e-27 
+#define me 9.10938356e-31
+#define mu 1.66053904e-27 
+#define ao 5.291772109e-11
+#define h 6.62607015e-34
+#define a 1.602176634e-19 
+#define u 1.66053906660e-27
+#define F 9.64852558e4
+#define Na 6.022e23     
+#define k 1.38e-23      
+#define Vm 22.4         
+#define R 8.314         
+#define C0 1e-6         
+#define C1 1e-5         
+#define C2 1e-4         
+#define g 9.8           
+#define G0 6.674e-11     
+#define Z0 377          
+#define atm 101325 
+#define t 1.0
+#define G 6.6742e-11
+
+
+#define μB 9.2740100783e-24  
+#define α 0.0072973525693
+#define re 2.8179403227e-15
+#define λc 2.4263102389e-12
+#define γp 2.675222099e8
+#define λcp 1.3214098562e-15
+#define λcn 1.31959090481e-15
+#define μp 1.41060679736e-26
+#define μe -9.28476430e-24
+#define μμ -4.49044799e-26
+#define σ 5.670374419e-8
+#define ε0 8.8541878128e-12
+#define μ0 1.2566370614e-6
+#define Φ0 2.067833848e-15
+
+
+int main(){
+
+    char operator;
+    int num1;
+    int num2;
+    int result;
+    int number;
+    float cnumber;
+    int i;
+    int j;
+    int z;
+    int size;
+    int matrix2[15][15];
+    int r_matrix[15][15];
+    int matrix1[15][15];
+
+
+
+    while(1){
+        
+        printf("press 0 for exit\n");
+        printf("press 1 for addition\n");
+        printf("press 2 for subtraction\n");
+        printf("press 3 for multiplication\n");
+        printf("press 4 for division\n");
+        printf("press 5 for modulus\n");
+        printf("press 6 for value of pie\n");
+        printf("press 7 for angle of sin\n");
+        printf("press 8 for angle of cos\n");
+        printf("press 9 for tan\n");
+        printf("press 10 for exponential (e^x)\n");
+        printf("press 11 for square\n");                            
+        printf("press 12 for cube\n"); 
+        printf("press 13 for squareroot\n"); 
+        printf("press 14 for power\n"); 
+        printf("press 15 for factorial\n"); 
+        printf("press 16 for e\n"); 
+        printf("press 17 for int into  float\n");
+        printf("press 18 for angle of arcsin\n");
+        printf("press 19 for angle of arccos\n");
+        printf("press 20 for angle of arctan\n");
+        printf("press 21 for log\n");
+                                                       
+                                                       
+        printf("press 22 for constant value of mp\n");
+        printf("press 23 for constant value of mn\n");
+        printf("press 24 for constant value of me\n");
+        printf("press 25 for constant value of mu\n");
+        printf("press 26 for constant value of ao\n");
+        printf("press 27 for constant value of h\n");
+        printf("press 28 for constant value of a\n");
+        printf("press 29 for constant value of u\n");
+        printf("press 30 for constant value of F\n");
+        printf("press 31 for constant value of e\n");
+        printf("press 32 for constant value of Na\n");
+        printf("press 33 for constant value of k\n");
+        printf("press 34 for constant value of Vm\n");
+        printf("press 35 for constant value of R\n");
+        printf("press 36 for constant value of C0\n");
+        printf("press 37 for constant value of C1\n");
+        printf("press 38 for constant value of C2\n");
+        printf("press 39 for constant value of g\n");
+        printf("press 40 for constant value of G0\n");
+        printf("press 41 for constant value of Z0\n");
+        printf("press 42 for constant value of t\n");
+        printf("press 43 for constant value of G\n");
+        printf("press 44 for constant value of atm\n");
+
+
+        printf("press 45 for constant value of μB\n");
+        printf("press 46 for constant value of α\n");
+        printf("press 47 for constant value of re\n");
+        printf("press 48 for constant value of λc\n");
+        printf("press 49 for constant value of γp\n");
+        printf("press 50 for constant value of λcp\n");     
+        printf("press 51 for constant value of λcn\n");
+        printf("press 52 for constant value of μp\n");
+        printf("press 53 for constant value of μe\n");
+        printf("press 55 for constant value of μμ\n");
+        printf("press 56 for constant value of σ\n");
+        printf("press 57 for constant value of ε0\n");
+        printf("press 58 for constant value of μ0\n");
+        printf("press 59 for constant value of Φ0\n");
+
+        
+        
+        printf("press 60 for convert in to cm\n");
+        printf("press 61 for convert cm to in\n");
+        printf("press 62 for convert ft to m\n");
+        printf("press 63 for convert m to ft\n");
+        printf("press 64 for convert in to cm\n");
+        printf("press 65 for convert yd to m\n");
+        printf("press 66 for convert m to yd\n");
+        printf("press 67 for convert mile to km\n");
+        printf("press 68 for convert km to mile\n");
+        printf("press 69 for convert n mile to m\n");
+        printf("press 70 for convert m to n mile\n");
+        printf("press 71 for convert acre to m^2\n");
+        printf("press 72 for convert m^2 to acre\n");
+        printf("press 73 for convert pc to km\n");
+        printf("press 74 for convert km to pc\n");
+        printf("press 75 for convert km/h to m/s\n");
+        printf("press 76 for convert m/s to km/h\n");
+        printf("press 77 for convert oz to g\n");
+        printf("press 78 for convert g to oz\n");
+        printf("press 79 for convert lb to kg\n");
+        printf("press 80 for convert kg to lb\n");
+        printf("press 81 for convert atm to pa\n");
+        printf("press 82 for convert pa to atm\n");
+        printf("press 83 for convert hp to kW\n");
+        printf("press 84 for convert kW to hp\n");
+        printf("press 85 for convert Farenheit to celcius\n");
+        printf("press 86 for convert celcius to farenheit\n");
+        printf("press 87 for convert J to cal\n");                
+        printf("press 88 for convert cal to j\n"); 
+
+
+        printf("press 89 for addition of 2 matrix\n");
+        printf("press 90 for subtraction of 2 matrix\n");
+        printf("press 91 for multiplication of 2 matrix\n");
+        
+
+
+        scanf("%d",&number);
+            
+            switch (number) {
+                
+                case 0:
+                
+                    printf("program is exiting\n");
+                
+                    return 0;
+                
+                case 1:
+                
+                    printf("enter number 1\n");
+                    scanf("%d",&num1);
+                
+                    printf("enter number 2\n");
+                    scanf("%d",&num2);
+                    
+                    result = num1 + num2;
+                    printf("%d\n",result);
+                
+                    break;
+                
+                case 2:
+
+                    printf("enter number 1\n");
+                    scanf("%d",&num1);
+
+                    printf("enter number 2\n");
+                    scanf("%d",&num2);
+
+                    result = num1 - num2;
+                    printf("%d\n",result);
+
+                    break;
+
+                case 3:                
+
+                    printf("enter number 1\n");
+                    scanf("%d",&num1);
+
+                    printf("enter number 2\n");
+                    scanf("%d",&num2);
+
+                    result = num1 * num2;
+                    printf("%d\n",result);
+
+                    break;
+
+                case 4:
+
+                    printf("enter number 1\n");
+                    scanf("%d",&num1);
+
+                    printf("enter number 2\n");
+                    scanf("%d",&num2);
+
+                     if (num2 != 0) {
+                    result = (float)num1 / (float)num2;
+                    printf("Result: %d\n", result);
+                    }
+                    else
+                    {
+                    printf("Error: Division by zero is not allowed.\n");
+                    }
+           
+                    break;
+                
+                case 5:                
+           
+                    printf("enter number 1\n");
+                    scanf("%d",&num1);
+
+                    printf("enter number 2\n");
+                    scanf("%d",&num2);
+
+                    result = num1 % num2;
+                    printf("%d\n",result);
+                    break;
+                
+                case 6:
+
+                    float v_pie;
+                    float r_pie;
+
+                    printf("Enter number\n");
+                    scanf("%.2f",&v_pie);
+
+                    r_pie = v_pie * pie;
+                    printf("%d pie is = %.2f\n",v_pie,r_pie);
+                    break;
+
+                case 7:
+
+                    float r_sin;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_sin = sin(number);
+                    printf("The sin %f is %f\n",number,r_sin);
+                    break;
+
+                case 8:
+
+                    float r_cos;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_cos = cos(number);
+                    printf("The cos %f is %f\n",number,r_cos);
+                    break;
+
+                case 9:
+
+                    float r_tan;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_tan = tan(number);
+                    printf("The tan %f is %f\n",number,r_tan);
+                    break;
+
+                case 10:
+
+                    float r_exponential;
+
+                    printf("Enter the exponent (x) for e^x:\n");
+                    scanf("%f", &number);
+
+                    r_exponential = exp(number);
+                    printf("e^%.2f = %.6f\n", number, r_exponential);
+                    break;
+
+                case 11:
+
+                   float square;
+
+                   printf("Enter number\n");
+                   scanf("%d",&number);
+
+                   square = number * number;
+                   printf("square of %d is %f\n",number,square);
+                   break;    
+
+                case 12:
+
+                   float cube;
+
+                   printf("Enter number\n");
+                   scanf("%d",&number);
+
+                   cube = number * number * number;
+                   printf("Cube of %d is %f\n",number,cube);
+                   break;
+
+                case 13:
+
+                   float squareroot;
+
+                   printf("Enter number\n");
+                   scanf("%d",&number);
+
+                   squareroot = sqrt(number);
+                   printf("squareroot of %d is %f\n",number,squareroot);
+                   break;
+
+                case 14:
+
+                int base;
+                int power;
+
+                    printf("enter base\n");
+                    scanf("%d",&base);
+
+                    printf("enter power\n");
+                    scanf("%d",&power);
+
+                    printf("The %d power %d = %d\n",base,power,pow(base,power));
+                    break;
+               
+                case 15:
+
+                    int n; 
+                    int factorial = 1;
+
+                    printf("enter number you want for factorial\n");
+                    scanf("%d",&n);
+
+                    for(i = 1 ; i <= n ; i++){
+                        factorial = factorial * i;
+                    }
+
+                    printf("factorial of %d is %d\n",n,factorial);
+                    break;
+
+                case 16:
+
+                    float v_e;
+                    float r_e;
+
+                    printf("Enter number \n");
+                    scanf("%f",&v_e);
+
+                    r_e = v_e * e;
+                    printf("The value of %f is %f\n",v_e,r_e);
+                    break;
+
+                case 18:
+
+                    float r_arcsin;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_arcsin = asin(number);
+                    printf("The arcsin %f is %f\n",number,r_arcsin);
+                    break;
+
+                case 19:
+
+                    float r_arccos;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_arccos = acos(number);
+                    printf("The arccos %f is %f\n",number,r_arccos);
+                    break;
+
+                case 20:
+
+                    float r_arctan;
+
+                    printf("enter number\n");
+                    scanf("%f",&number);
+
+                    r_arctan = atan(number);
+                    printf("The tan %f is %f\n",number,r_arctan);
+                    break;
+                    
+                case 21:
+
+                    float l_number;
+                    float r_log;
+                    
+                    printf("Enter value for log\n");
+                    scanf("%f",&l_number);
+
+                    r_log = log(l_number);
+                    printf("The log %.2f is %.2f",l_number,r_log);
+                    break;
+                
+                case 22:
+                   
+                    printf("constant value of mp is %e\n",mp);
+                    break;
+
+                case 23:
+
+                    printf("constant value of mn is %e\n",mn);
+                    break;
+
+                case 24:    
+
+                    printf("constant value of me is %e\n",me);
+                    break;
+
+                case 25:    
+
+                    printf("constant value of mu is %e\n",mu);
+                    break;
+
+                case 26:    
+
+                    printf("constant value of ao is %e\n",ao);
+                    break;
+
+                case 27:    
+
+                    printf("constant value of h is %e\n",h);
+                    break;
+
+                case 28:    
+
+                    printf("constant value of a is %e\n",a);
+                    break;
+
+                case 29:    
+
+                    printf("constant value of u is %e\n",u);
+                    break;
+
+
+                case 30:    
+
+                    printf("constant value of F is %e\n",F);
+                    break;
+
+                case 31:    
+
+                    printf("constant value of e is %e\n",e);
+                    break;
+
+                case 32:    
+                
+                    printf("constant value of Na is %e\n",Na);
+                    break;
+
+                case 33:    
+
+                    printf("constant value of k is %e\n",k);
+                    break;
+
+                case 34:    
+
+                    printf("constant value of Vm is %e\n",Vm);
+                    break;
+
+                case 35:    
+
+                    printf("constant value of R is %e\n",R);
+                    break;
+
+                case 36:    
+
+                    printf("constant value of C0 is %e\n",C0);
+                    break;
+
+                case 37:    
+                   
+                    printf("constant value of C1 is %e\n",C1);
+                    break;
+          
+                case 38:    
+
+                    printf("constant value of C2 is %e\n",C2);
+                    break;
+
+                case 39:    
+
+                    printf("constant value of g is %e\n",g);
+                    break;
+
+                case 40:    
+
+                    printf("constant value of G0 is %e\n",G0);
+                    break;
+
+                case 41:    
+
+                    printf("constant value of Z0 is %e\n",Z0);
+                    break;
+                
+                case 42:  
+
+                    printf("constant value of t is %e\n",t);
+                    break;
+
+                case 43:
+
+                    printf("constant value of G is %e\n",G);
+                    break;
+
+                case 44:  
+
+                    printf("constant value of atm is %e\n",atm);
+                    break;
+                
+                case 45:
+ 
+                    printf("constant value of μB is %e\n",μB);
+                    break;
+                
+                case 46:
+ 
+                    printf("constant value of α is %e\n",α);
+                    break;
+                 
+                case 47:
+
+                    printf("constant value of re is %e\n",re);
+                    break;                    
+
+                case 48:
+
+                    printf("constant value of λc is %e\n",λc);
+                    break;
+                
+                case 49:
+
+                    printf("constant value of γp is %e\n",γp);
+                    break;
+                
+                case 50:
+
+                    printf("constant value of λcp is %e\n",λcp);
+                    break;
+                 
+                case 51:
+
+                    printf("constant value of λcn is %e\n",λcn);    
+                    break;
+                 
+                case 52:
+
+                    printf("constant value of μp is %e\n",μp);
+                    break;
+                 
+                case 53:
+
+                    printf("constant value of μe is %e\n",μe);
+                    break;
+                 
+                case 55:
+
+                    printf("constant value of μμ is %e\n",μμ);
+                    break;
+                 
+                case 56:
+
+                    printf("constant value of σ is %e\n",σ);
+                    break;
+                 
+                case 57:
+
+                    printf("constant value of ε0 is %e\n",ε0);
+                    break;
+                 
+                case 58:
+
+                    printf("constant value of μ0 is %e\n",μ0);
+                    break;
+                 
+                case 59:
+
+                    printf("constant value of Φ0 is %e\n",Φ0);
+                    break;
+
+                case 60:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("in to cm is %.2f\n",cnumber * 2.54);
+                    break;
+                
+                case 61:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("cm to in is %.2f\n",cnumber / 2.54);
+                    break;
+
+                case 62:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("ft into m is %.2f\n",cnumber * 0.3048);
+                    break;
+
+                case 63:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("m to ft is %.2f\n",cnumber / 0.3048);
+                    break;
+
+                case 65:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("yd to m is %.2f\n",cnumber * 0.9144);
+                    break;
+
+                case 66:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("m to yd is %.2f\n",cnumber / 0.9144);
+                    break;
+
+                case 67:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("mile to km is %.2f\n",cnumber * 1.60934);
+                    break;
+
+                case 68:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("km to mile is %.2f\n",cnumber / 1.60934);
+                    break;
+
+                case 69:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("n mile to m is %.2f\n",cnumber * 1852);
+                    break;
+
+                case 70:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("m to n mile is %.2f\n",cnumber / 1852);
+                    break;
+
+                case 71:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("acre to m^2 is %.2f\n",cnumber * 4046.86);
+                    break;
+
+                case 72:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("m^2 to acre is %.2f\n",cnumber / 4046.86);
+                    break;
+
+                case 73:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("pc to km is %.2f\n",cnumber * 3.0857e13);
+                    break;
+
+                case 74:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("km to pc is %.2f\n",cnumber / 3.0857e13);
+                    break;
+
+                case 75:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("km/h to m/s is %.2f\n",cnumber * 0.277778);
+                    break;
+
+                case 76:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("m/s to km/h is %.2f\n",cnumber / 0.277778);
+                    break;
+
+                case 77:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("oz to g is %.2f\n",cnumber * 28.3495);
+                    break;
+
+                case 78:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("g to oz is %.2f\n",cnumber / 28.3495);
+                    break;
+
+                case 79:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("lb to kg is %.2f\n",cnumber * 0.453592);
+                    break;
+
+                case 80:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("kg to lb is %.2f\n",cnumber / 0.453592);
+                    break;
+
+                case 81:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("atm to pa is %.2f\n",cnumber * 101325);
+                    break;
+
+                case 82:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("pa to atm is %.2f\n",cnumber / 101325);
+                    break;
+
+                case 83:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("hp to kw is %.2f\n",cnumber * 0.7355);
+                    break;
+
+                case 84:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("kw to hp is %.2f\n",cnumber / 0.7355);
+                    break;
+
+                case 85:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("F to C is %.2f\n",(cnumber - 32) * 5 / 9);
+                    break;                    
+
+                case 86:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("C to F is %.2f\n",cnumber * 9 / 5 + 32);
+                    break;
+
+                case 87:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("J to CAL is %.2f\n",cnumber / 4.184);
+                    break;
+
+                case 88:
+
+                    printf("Enter value for conversion :\n");
+                    scanf("%f",&cnumber); 
+
+                    printf("CAL to J is %.2f\n",cnumber * 4.184);
+                    break;
+
+                case 89:
+                    
+                    printf("enter size of a matrix\n");
+                    scanf("%d",&size);
+
+                    matrix1[size][size];
+                    matrix2[size][size];
+                    r_matrix[size][size];
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size  ; j++){
+ 
+                            printf("enter value for matrix1\n");
+                            scanf("%d",&matrix1[i][j]);
+ 
+                            printf("value of matrix1[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size ; j++){
+  
+                            printf("enter value for matrix2\n");
+                            scanf("%d",&matrix2[i][j]);
+  
+                            printf("value of matrix2[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size ; i++){
+                        for(j = 0 ; j < size ; j++){
+  
+                            r_matrix[i][j] = matrix1[i][j] + matrix2[i][j];
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            printf("%d\n",r_matrix[i][j]);
+
+                        }
+
+                    }
+        
+                break;
+ 
+                case 90:
+                    
+                    printf("enter size of a matrix\n");
+                    scanf("%d",&size);
+
+                    matrix1[size][size];
+                    matrix2[size][size];
+                    r_matrix[size][size];
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size  ; j++){
+
+                            printf("enter value for matrix1\n");
+                            scanf("%d",&matrix1[i][j]);
+
+                            printf("value of matrix1[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            printf("enter value for matrix2\n");
+                            scanf("%d",&matrix2[i][j]);
+
+                            printf("value of matrix2[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size ; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            r_matrix[i][j] = matrix1[i][j] - matrix2[i][j];
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            printf("%d\n",r_matrix[i][j]);
+
+                        }
+
+                    }
+        
+                break;
+
+                case 91:
+                    
+                    printf("enter size of a matrix\n");
+                    scanf("%d",&size);
+
+                    matrix1[size][size];
+                    matrix2[size][size];
+                    r_matrix[size][size];
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size  ; j++){
+
+                            printf("enter value for matrix1\n");
+                            scanf("%d",&matrix1[i][j]);
+
+                            printf("value of matrix1[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size  ; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            printf("enter value for matrix2\n");
+                            scanf("%d",&matrix2[i][j]);
+
+                            printf("value of matrix2[%d][%d]\n",i,j);
+
+                        }
+
+                    }
+
+                    for(i = 0 ;i < size; i++){
+                        for(j = 0 ; j < size ; j++){
+
+                            r_matrix[i][j] = 0 ; 
+
+                            for(z = 0 ; z < size ; z++){
+
+                                r_matrix[i][j] += matrix1[i][z] * matrix2[j][z] ;
+                            }
+                        
+                        }
+                    
+                    }
+        
+                break;
+
+
+                default:
+                    
+                    printf("Error: Invalid number\n");
+                    continue;  
+            }
+                    printf("result is %d\n",result);
+        }
+
+return 0;
+}
