@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+
+int main(){
+int i,number,index;
+int array[100];
+
+for(i = 0 ; i < 10 ; i++){
+        printf("Enter number\n");
+    scanf("%d",&array[i]);
+    printf("value at index %d is array[%d]\n",i,array[i]);
+}
+
+printf("enter number you want to check ");
+scanf("%d",&number);
+for(i = 0 ; i < 10 ; i++){
+    if(number == array[i]){
+     printf("The number = %d is at index %d\n",number,i);
+    }
+}
+
+printf("enter index\n");
+scanf("%d",&index);
+printf("At index = %d is %d",index,array[index]);
+
+
+return 0;
+}
+
+
+
+
