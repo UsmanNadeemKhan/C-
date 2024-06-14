@@ -1,0 +1,18 @@
+
+#include <stdio.h>
+
+int main() {
+   char alphabet;//declare variable
+
+   printf("Enter a alphabet: ");
+   scanf("%c", &alphabet); // take input from the user
+   // check if alphabet a,e,i,o,u,A,E,I,O,U 
+      if (alphabet == 'a' || alphabet == 'e' || alphabet == 'i' || alphabet == 'o' || alphabet == 'u' ||
+         alphabet == 'A' || alphabet == 'E' || alphabet == 'I' || alphabet == 'O' || alphabet == 'U') 
+         printf("%c is a vowel.\n", alphabet); //print it is a vowel
+      else {
+            printf("%c is a consonant.\n", alphabet);// else print it is a consonant
+         }
+    return 0;
+}
+
