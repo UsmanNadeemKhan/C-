@@ -1,0 +1,28 @@
+
+
+#include <stdio.h>
+
+int main() {
+
+
+int username ,password,realusername = 123,realpassword = 123 ; // declare variable
+   printf("enter username :");
+   scanf("%d",&username);// input variable from the user
+
+   printf("enter password");
+   scanf("%d",&password);// input variable from the user
+
+   if(username == realusername){//if username = realusername
+      printf("valid username\n");//print valid username
+   }else{
+      printf("invalid");//else print invalid
+   }
+   if(password == realpassword){//if password = realpassword
+      printf("valid password\n");//print valid password
+   }else{
+      printf("invalid");//else print invalid
+   }
+   
+    return 0;
+}
+
