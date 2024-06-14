@@ -1,0 +1,16 @@
+
+#include <stdio.h>//# in the start and dictionary is stdio.h
+int main() {//int instead of float
+int number1, number2, sum;// (;) for closing
+
+printf("Enter first integers: ");//first
+scanf("%d",&number1);//required only number1 and %d and (&) for memory allocation
+printf("Enter two integers: ");//(") and (;)
+scanf("%d",&number2);//%d and (&) for memory allocation
+// calculate the sum
+sum = number1 + number2; //  (+) sign used for addition
+
+printf("Sum =%d" , sum);//reduired %d for declaration and (")for closing
+return 0;//(;)requried for closing
+} // closing bracket
+
