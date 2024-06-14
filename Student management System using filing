@@ -1,0 +1,309 @@
+
+
+#include <stdio.h>
+
+struct students {
+    char name[100];
+    int roll_number;
+    float marks[10];
+};
+
+void addStudent(struct students student[], int no, int subject) {
+    FILE *file = fopen("student.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    for (int i = 0; i < no; i++) {
+        printf("Enter student name: ");
+        scanf("%s", student[i].name);
+
+        printf("Enter student roll no: ");
+        scanf("%d", &student[i].roll_number);
+
+        fprintf(file, "%s %d ", student[i].name, student[i].roll_number);
+
+        for (int j = 0; j < subject; j++) {
+            printf("Enter marks for subject %d: ", j + 1);
+            scanf("%f", &student[i].marks[j]);
+            fprintf(file, "%.2f ", student[i].marks[j]);
+        }
+        fprintf(file, "\n");
+    }
+
+    fclose(file);
+}
+
+void display_detail() {
+    FILE *file = fopen("student.txt", "r");
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    struct students student;
+    while (fscanf(file, "%s %d", student.name, &student.roll_number)!= EOF) {
+        printf("Name: %s\nRoll Number: %d\n", student.name, student.roll_number);
+
+        for (int j = 0; j < 10; j++) {
+            if (fscanf(file, "%f", &student.marks[j]) == 1) {
+                printf("Subject %d Marks: %.2f\n", j + 1, student.marks[j]);
+            } else {
+                break ;// Stop reading if no more marks
+              }
+        }
+        printf("\n");
+    }
+
+    fclose(file);
+}
+
+void search_student() {
+    int roll_number;
+    FILE *file = fopen("student.txt", "r");
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    printf("Enter student roll no : ");
+    scanf("%d", &roll_number);
+
+    struct students student;
+    int found = 0;
+
+    while (fscanf(file, "%s %d", student.name, &student.roll_number) != EOF) {
+        if (student.roll_number == roll_number) {
+            printf("Name: %s\nRoll Number: %d\n", student.name, student.roll_number);
+
+            for (int j = 0; j < 10; j++) {
+                if (fscanf(file, "%f", &student.marks[j]) == 1) {
+                    printf("Subject %d Marks: %.2f\n", j + 1, student.marks[j]);
+                } else {
+                    break;  // Stop reading if no more marks
+                }
+            }
+
+            found = 1;
+            break;  // Break out of the loop once the student is found
+        } else {
+            // Skip the marks for the current student
+            for (int j = 0; j < 10; j++) {
+                fscanf(file, "%f", &student.marks[j]);
+            }
+        }
+    }
+
+    fclose(file);
+
+    if (!found) {
+        printf("Student with roll number %d not found.\n", roll_number);
+    }
+}
+
+void update_marks() {
+    int roll_number, new_marks;
+    FILE *file = fopen("student.txt", "r+");
+    if (file == NULL) {
+        printf("Error opening file for reading and writing.\n");
+        return;
+    }
+
+    printf("Enter student roll no : ");
+    scanf("%d", &roll_number);
+
+    struct students student;
+    int found = 0;
+
+    while (fscanf(file, "%s %d", student.name, &student.roll_number) != EOF) {
+        if (student.roll_number == roll_number) {
+            printf("Enter new marks: ");
+            for (int j = 0; j < 10; j++) {
+                scanf("%f", &student.marks[j]);
+            }
+
+            fseek(file, -((long)sizeof(student)), SEEK_CUR);
+            fprintf(file, "%s %d ", student.name, student.roll_number);
+            for (int j = 0; j < 10; j++) {
+                fprintf(file, "%.2f ", student.marks[j]);
+            }
+            found = 1;
+            break;  // Break out of the loop once the student is found
+        } else {
+            // Skip the marks for the current student
+            for (int j = 0; j < 10; j++) {
+                fscanf(file, "%f", &student.marks[j]);
+            }
+        }
+    }
+
+    fclose(file);
+
+    if (!found) {
+        printf("Student with roll number %d not found.\n", roll_number);
+    }
+}
+
+void delete_student() {
+    int roll_number;
+    printf("Enter student roll no : ");
+    scanf("%d", &roll_number);
+
+    FILE *file = fopen("student.txt", "r");
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    FILE *tempFile = fopen("temp.txt", "w");
+    if (tempFile == NULL) {
+        printf("Error opening temp file.\n");
+        fclose(file);
+        return;
+    }
+
+    struct students student;
+    int found = 0;
+
+    while (fscanf(file, "%s %d", student.name, &student.roll_number) != EOF) {
+        if (student.roll_number == roll_number) {
+            found = 1;
+            continue;  // Skip writing this student to temp file
+        }
+
+        fprintf(tempFile, "%s %d ", student.name, student.roll_number);
+        for (int j = 0; j < 10; j++) {
+            fscanf(file, "%f", &student.marks[j]);
+            fprintf(tempFile, "%.2f ", student.marks[j]);
+        }
+        fprintf(tempFile, "\n");
+    }
+
+    fclose(file);
+    fclose(tempFile);
+
+    if (!found) {
+        printf("Student with roll number %d not found.\n", roll_number);
+    } else {
+        remove("student.txt");
+        rename("temp.txt", "student.txt");
+        printf("Student with roll number %d deleted successfully.\n", roll_number);
+    }
+}
+
+void calculate_average_marks() {
+    int roll_number;
+    printf("Enter student roll no : ");
+    scanf("%d", &roll_number);
+
+    FILE *file = fopen("student.txt", "r");
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    struct students student;
+    int found = 0;
+
+    while (fscanf(file, "%s %d", student.name, &student.roll_number) != EOF) {
+        if (student.roll_number == roll_number) {
+            found = 1;
+            printf("Name: %s\nRoll Number: %d\n", student.name, student.roll_number);
+
+            float sum = 0.0;
+            for (int j = 0; j < 10; j++) {
+                fscanf(file, "%f", &student.marks[j]);
+                printf("Subject %d Marks: %.2f\n", j + 1, student.marks[j]);
+                sum += student.marks[j];
+            }
+
+            float average = sum / 10;
+            printf("Average Mark: %.2f\n", average);
+
+            break;  // Break out of the loop once the student is found
+        } else {
+            // Skip the marks for the current student
+            for (int j = 0; j < 10; j++) {
+                fscanf(file, "%f", &student.marks[j]);
+            }
+        }
+    }
+
+    fclose(file);
+
+    if (!found) {
+        printf("Student with roll number %d not found.\n", roll_number);
+    }
+}
+
+int main() {
+    int number, no, subject;
+    struct students student[100];
+
+    while (1) {
+        printf("Enter 1 for add student\n");
+        printf("Enter 2 for view student detail\n");
+        printf("Enter 3 for search student detail\n");
+        printf("Enter 4 for update marks\n");
+        printf("Enter 5 for delete student info\n");
+        printf("Enter 6 for calculate average marks of a student\n");                        
+        printf("Enter 7 for exit\n");
+
+        scanf("%d", &number);
+
+        // Clear the input buffer
+        while (getchar() != '\n');
+
+        switch (number) {
+            case 1:
+                printf("Enter no of students: ");
+                scanf("%d", &no);
+
+                if (no > 100) {
+                    printf("Error: Number of students exceeds maximum allowed.\n");
+                    break;
+                }
+
+                printf("Enter no of subjects: ");
+                scanf("%d", &subject);
+
+                addStudent(student, no, subject);
+                break;
+
+            case 2:
+                display_detail();
+                break;
+
+            case 3:
+                search_student();
+                break;
+
+            case 4:
+                update_marks();
+                break;    
+
+            case 5:
+                delete_student();
+                break;
+
+            case 6:
+                calculate_average_marks();    
+                break;
+
+            case 7:
+                return 0;
+
+            default:
+                printf("Enter a valid number.\n");
+                break;
+        }
+    }
+    return 0;
+} 
+
+
+
+
+
+
