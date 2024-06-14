@@ -1,0 +1,32 @@
+#include &lt;stdio.h&gt;// header file
+int main(){// main function
+int number;// declare variable number
+int samsung = 10000 ,apple = 15000,xiaomi = 8000 ,others = 5000; // declare variable samsung = 10000
+,apple = 15000,xiaomi = 8000 ,others = 5000
+printf(&quot;press 1 for Apple\n&quot;);// print press 1 for Apple
+printf(&quot;press 2 for samsung\n&quot;); // print press 2 for samsung
+printf(&quot;press 3 for xiaomi\n&quot;); // print press 3 for xiaomi
+printf(&quot;press 4 for others\n&quot;);// print press 4 for others\n
+scanf(&quot;%d&quot;,&amp;number); // take input from the user of number
+
+switch(number){// using switch case
+case 1: // case 1
+printf(&quot;your cost for apple phone is %d&quot;,apple); //print the cost for apple phone
+break; // break statement
+case 2: // case 2
+printf(&quot;your cost for samsung phone is %d&quot;,samsung); // print the cost for samsung phone
+break; // break statement
+case 3: // case 3
+printf(&quot;your cost for xiaomi phone is %d&quot;,xiaomi); // print the cost for xiaomi phone
+break; // break statement
+case 4: // case 4
+printf(&quot;your cost for others phone is %d&quot;,others); // print the cost for others phone
+break; // break statement
+
+default: // default
+printf(&quot;you enter an invalid number&quot;); //print you enter an invalid number
+break;
+}
+
+return 0;//end
+}
