@@ -1,0 +1,11 @@
+ #include <stdio.h>
+int main() {
+float number;//declaring variable
+printf("Enter number: ");
+scanf("%f",&number);//take value of the given variable from the user
+
+printf("the 20 percent of given number :%.1f\n",number * 0.20);// input value of the given variable into the formula and print result
+printf("the 50 percent of given number :%.1f\n",number * 0.50);// input value of the given variable into the formula and print result
+printf("the 80 percent of given number :%.1f\n",number * 0.80);// input value of the given variable into the formula and print result
+return 0;
+}
