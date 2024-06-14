@@ -1,0 +1,134 @@
+#include <stdio.h>
+
+void addition(float matrix1[10][10], float matrix2[10][10], int size, float rmatrix[10][10]) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            rmatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%.2f ", rmatrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void subtraction(float matrix1[10][10], float matrix2[10][10], int size, float rmatrix[10][10]) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            rmatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%.2f ", rmatrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void multiplication(float matrix1[10][10], float matrix2[10][10], int size, float rmatrix[10][10]) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            rmatrix[i][j] = 0;
+            for (int k = 0; k < size; k++) {
+                rmatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%.2f ", rmatrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void division(float matrix1[10][10], float matrix2[10][10], int size, float rmatrix[10][10]) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            rmatrix[i][j] = matrix1[i][j] / matrix2[i][j];
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%.2f ", rmatrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int number, row, column;
+    float matrix1[10][10], matrix2[10][10], rmatrix[10][10];
+
+    printf("Enter no of rows\n");
+    scanf("%d", &row);
+
+    printf("Enter no of columns\n");
+    scanf("%d", &column);
+
+    printf("Enter value for matrix 1:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Enter value for index %d - %d \n", i, j);
+            scanf("%f", &matrix1[i][j]);
+        }
+    }
+
+    printf("Enter value for matrix 2:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Enter value for index %d - %d \n", i, j);
+            scanf("%f", &matrix2[i][j]);
+        }
+    }
+
+    while (1) {
+        printf("Enter 1 for addition\n");
+        printf("Enter 2 for subtraction\n");
+        printf("Enter 3 for multiplication\n");
+        printf("Enter 4 for division\n");
+        printf("Enter 5 for exit\n");
+
+        scanf("%d", &number);
+        switch (number) {
+            case 1:
+                if (row == column) {
+                    addition(matrix1, matrix2, row, rmatrix);
+                } else {
+                    printf("Rows and columns are not equal \n");
+                }
+                break;
+
+            case 2:
+                if (row == column) {
+                    subtraction(matrix1, matrix2, row, rmatrix);
+                } else {
+                    printf("Rows and columns are not equal \n");
+                }
+                break;
+
+            case 3:
+                if (column == row) {
+                    multiplication(matrix1, matrix2, row, rmatrix);
+                } else {
+                    printf("Invalid operation. Columns of the first matrix must be equal to rows of the second matrix.\n");
+                }
+                break;
+
+            case 4:
+                division(matrix1, matrix2, row, rmatrix);
+                break;
+            case 5:
+                return 0;
+
+            default:
+                printf("Enter a valid number.\n");
+                break;
+        }
+    }
+    return 0;
+}
+
