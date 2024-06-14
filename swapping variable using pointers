@@ -1,0 +1,24 @@
+#include&lt;stdio.h&gt;
+
+int main(){
+int a,b,c;// variable declaration
+int *ptr1 ,*ptr2 ,*ptr3;//pointer declaration
+
+printf(&quot;Enter the value of A = &quot;);
+scanf(&quot;%d&quot;,&amp;a);// input value from the user of A
+
+printf(&quot;\n Enter the value of B = &quot;);
+scanf(&quot;%d&quot;,&amp;b);// input value from the user of B
+
+ptr1 = &amp;a;// assign values into the pointer
+ptr2 = &amp;b;// assign values into the pointer
+ptr3 = &amp;c;// assign values into the pointer
+
+*ptr3 = *ptr1;//swap values using pointers
+*ptr1 = *ptr2 ;//swap values using pointers
+*ptr2 = *ptr3 ;//swap values using pointers
+
+printf(&quot;Value of A = %d and Value of B = %d\n&quot;,*ptr1,*ptr2);// print value of ptr 1 and ptr2 after swap
+
+return 0;
+}
