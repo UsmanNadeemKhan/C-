@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+
+int main() {
+
+   int number; // declare variable
+   printf("enter number :");
+   scanf("%d",&number);// input variable from the user
+      if(number == 1){  // if number = 1
+      printf("jan"); // print jan
+   }  else if(number == 2){ // if number = 2
+      printf("feb"); // print feb
+   }  else if(number == 3){ // if number = 3
+      printf("march"); // print march
+   }   else if(number == 4){ // if number = 4
+      printf("april"); // print april
+   }   else if(number == 5){ // if number = 5
+      printf("may"); // print may
+   }   else if(number == 6){ // if number = 6
+      printf("june"); // print june
+   }   else if(number == 7){ // if number = 7
+      printf("july"); // print july
+   }   else if(number == 8){ // if number = 8
+      printf("aug"); // print aug
+   }   else if(number == 9){ // if number = 9
+      printf("sept"); // print sept
+   }   else if(number == 10){ // if number = 10
+      printf("oct"); // print oct
+   }   else if(number == 11){ // if number = 11
+      printf("nov"); // print nov
+   }   else if(number == 12){ // if number = 12
+      printf("dec"); // print dec
+   }   else if(number > 12){ // if number > 12 
+      printf("invalid number"); // print invalid number
+   }
+
+    return 0;
+}
+
+
